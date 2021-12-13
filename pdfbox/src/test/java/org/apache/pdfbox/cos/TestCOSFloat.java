@@ -50,6 +50,12 @@ class TestCOSFloat extends TestCOSNumber
             fail("Failed to create a COSNumber in setUp()");
         }
     }
+     @Test
+    void testGet() throws IOException {
+        COSFloat cosFloat = new COSFloat(-3.4028235E38f);
+        cosFloat.accept(new COSWriter(new ByteArrayOutputStream(1)));
+        assertEquals("COSFloat{-340282350000000000000000000000000000000}", cosFloat.toString());
+    }
 
     /**
      * Base class to run looped tests with float numbers.
